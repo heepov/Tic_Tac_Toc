@@ -19,6 +19,9 @@ BG_COLOR = '#14bdac'
 CROSS_COLOR = '#545454'
 CIRCLE_COLOR = '#F2EBD2'
 
+player = 1
+
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tic Tac Toe")
 screen.fill(BG_COLOR)
@@ -45,12 +48,13 @@ def draw_figures():
             elif board[row][col] == 2:
                 pygame.draw.line(screen, CROSS_COLOR, (col * 200 + SPACE_CROSS, row * 200 + 200 - SPACE_CROSS),
                                  (col * 200 + 200 - SPACE_CROSS, row * 200 + SPACE_CROSS), CROSS_WIDTH)
+
                 pygame.draw.line(screen, CROSS_COLOR, (col * 200 + SPACE_CROSS, row * 200 + SPACE_CROSS),
                                  (col * 200 + 200 - SPACE_CROSS, row * 200 + 200 - SPACE_CROSS), CROSS_WIDTH)
 
 
-def mark_square(row, col, player):
-    board[row][col] = player
+def mark_square(row, col, gamer):
+    board[row][col] = gamer
 
 
 def available_square(row, col):
@@ -67,7 +71,6 @@ def if_board_full():
 
 draw_lines()
 
-player = 1
 
 while True:
     for event in pygame.event.get():
